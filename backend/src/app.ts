@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { router, API_PREFIX } from "./routes";
 import uploadRoutes from "./routes/upload.routes";
+import analysisRoutes from "./routes/analysis.routes";
 import { errorMiddleware } from "./middleware/error.middleware";
 import { env } from "./config/env";
 
@@ -21,6 +22,7 @@ export function createApp() {
   app.use(cookieParser());
 
   app.use("/api", uploadRoutes);
+  app.use("/api", analysisRoutes);
   app.use(API_PREFIX, router);
   app.use(errorMiddleware);
 

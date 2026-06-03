@@ -12,6 +12,8 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
   BACKEND_PORT: z.coerce.number().default(4000),
   FRONTEND_URL: z.string().url().default("http://localhost:3000"),
+  OPENAI_API_KEY: z.string().min(1),
+  OPENAI_MODEL: z.string().default("gpt-4o"),
 });
 
 const parsed = envSchema.safeParse(process.env);
