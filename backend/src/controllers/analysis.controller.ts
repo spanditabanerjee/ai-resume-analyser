@@ -14,4 +14,13 @@ export const analysisController = {
       next(err);
     }
   },
+
+  async list(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const analyses = await analysisService.listByUser(req.user!.id);
+      res.status(200).json({ success: true, data: analyses });
+    } catch (err) {
+      next(err);
+    }
+  },
 };
