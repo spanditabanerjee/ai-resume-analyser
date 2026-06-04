@@ -20,8 +20,4 @@ export const analysisService = {
       createdAt: analysis.createdAt,
     };
   },
-
-  async listByUser(userId: string) {
-    return analysisRepository.findByUserId(userId);
-  },
 };

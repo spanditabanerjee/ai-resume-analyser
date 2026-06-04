@@ -13,6 +13,4 @@ router.post(
   analysisController.analyze
 );
 
-router.get("/analyses", authMiddleware, analysisController.list);
-
 export default router;
