@@ -62,8 +62,29 @@ export const openaiService = {
 
     for (let attempt = 0; attempt <= MAX_VALIDATION_RETRIES; attempt++) {
       try {
-        const content = await requestAnalysis(resumeText, jobDescription, attempt > 0);
-        return parseAndValidateAnalysisJson(content);
+         const content = await requestAnalysis(resumeText, jobDescription, attempt > 0);
+         return parseAndValidateAnalysisJson(content);
+        // return {
+        //   score: 82,
+        //   strengths: [
+        //     "Node.js",
+        //     "TypeScript",
+        //     "PostgreSQL"
+        //   ],
+        //   weaknesses: [
+        //     "AWS experience not highlighted"
+        //   ],
+        //   missingSkills: [
+        //     "Docker",
+        //     "Kubernetes"
+        //   ],
+        //   atsSuggestions: [
+        //     "Add quantified achievements",
+        //     "Highlight backend scalability projects",
+        //     "Include more keywords from the job description"
+        //   ]
+        // };
+    
       } catch (err) {
         if (
           err instanceof AppError &&
