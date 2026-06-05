@@ -8,3 +8,4 @@ uploads/
 .env.*
 backend/.env
 frontend/.env.local
+tsconfig.tsbuildinfo
